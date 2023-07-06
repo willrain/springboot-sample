@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy # log4j
+    url: jdbc:log4jdbc:mariadb://lisa-mariadb.infra.namp.io:3306/demo?characterEncoding=UTF-8&useTimezone=true&serverTimezone=Asia/Seoul
+    username: demo
+    password: demo1234

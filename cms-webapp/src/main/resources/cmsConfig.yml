@@ -1,0 +1,7 @@
+logging:
+  level:
+    root: INFO
+  file:
+    name: ${spring.application.name}
+    path: ./logs
+
