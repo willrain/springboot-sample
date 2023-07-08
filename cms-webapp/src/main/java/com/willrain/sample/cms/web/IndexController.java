@@ -23,4 +23,16 @@ public class IndexController extends BaseController {
         return "index";
     }
 
+
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+
 }

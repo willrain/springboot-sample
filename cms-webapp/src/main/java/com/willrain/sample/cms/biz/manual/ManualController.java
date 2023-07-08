@@ -1,4 +1,4 @@
-package com.willrain.sample.cms.biz.manual.controller;
+package com.willrain.sample.cms.biz.manual;
 
 import com.willrain.sample.cms.common.controller.BaseController;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/cms/manual")
+@RequestMapping("/usermanual")
 public class ManualController extends BaseController {
 
     @GetMapping(path = {"", "/"})
