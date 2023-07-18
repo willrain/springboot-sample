@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin/layout}">
+
+<th:block layout:fragment="content">
+    <div class="container-fluid">
+        <main class="px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-end pt-3 pb-2 mb-3 border-bottom">
+                <h4 class="text-primary fw-bold"><span class="far fa-clone pe-1"></span>입력 문서 현황</h4>
+
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped table-bordered text-center" style="font-size: 14px">
+                    <thead>
+                    <tr>
+                        <th class="text-nowrap">문서명</th>
+                        <th class="text-nowrap">입력 현황</th>
+                        <th class="text-nowrap">입력하기</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th class="text-nowrap text-primary">주간 업무 보고</th>
+                        <td class="text-warning">미입력</td>
+                        <th class="text-nowrap">
+                            <a class="btn btn-outline-primary btn-sm" role="button" data-bs-toggle="modal" href="input_weekly.html">입력하기</a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">월간 업무 보고</th>
+                        <td>2023.06.01</td>
+                        <th class="text-nowrap"><a href="#"></a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">민원 처리 보고</th>
+                        <td>2023.06.01</td>
+                        <th class="text-nowrap"><a href="#"></a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">예산 집행 보고</th>
+                        <td class="text-warning">미입력</td>
+                        <th class="text-nowrap">
+                            <a class="btn btn-outline-primary btn-sm" role="button" data-bs-toggle="modal" href="input_weekly.html">입력하기</a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">사업 추진 보고</th>
+                        <td class="text-warning">미입력</td>
+                        <th class="text-nowrap">
+                            <a class="btn btn-outline-primary btn-sm" role="button" data-bs-toggle="modal" href="input_weekly.html">입력하기</a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">인사 관리 보고</th>
+                        <td>2023.06.01</td>
+                        <th class="text-nowrap"><a href="#"></a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">안전 관리 보고</th>
+                        <td>2023.06.01</td>
+                        <th class="text-nowrap"><a href="#"></a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">환경 관리 보고</th>
+                        <td>2023.06.01</td>
+                        <th class="text-nowrap"><a href="#"></a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">성과목표 관리현황</th>
+                        <td>2023.06.01</td>
+                        <th class="text-nowrap"><a href="#"></a></th>
+                    </tr>
+                    <tr>
+                        <th class="text-nowrap text-primary">홍보 관리 보고</th>
+                        <td class="text-warning">미입력</td>
+                        <th class="text-nowrap">
+                            <a class="btn btn-outline-primary btn-sm" role="button" data-bs-toggle="modal" href="input_weekly.html">입력하기</a></th>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1062" height="448" style="display: block; width: 1062px; height: 448px;">
+            </canvas>
+        </main>
+    </div>
+</th:block>
+
+</html>
+
+<script type="text/javascript">
+
+</script>

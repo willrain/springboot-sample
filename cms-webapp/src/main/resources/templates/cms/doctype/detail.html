@@ -6,10 +6,106 @@
 
 <th:block layout:fragment="content">
     <div class="container-fluid">
-        <h1>취합문서</h1>
+        <main class="px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-end pt-3 pb-2 mb-3 border-bottom">
+                <h4 class="text-info fw-bold" ><span class="fas fa-calendar-day pe-1"></span><span th:text="${docId}"> 주간 업무 보고</span></h4>
+            </div>
 
-        <div>
-            blabla
+            <div class="card mb-3 p-2 text-info">검색 조건
+                <div class="row">
+                    <div class="col d-sm-flex">
+                        <div class="button me-1">
+                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">1주차</button>
+                        </div>
+                        <div class="button me-1">
+                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">2주차</button>
+                        </div>
+                        <div class="button me-1">
+                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">3주차</button>
+                        </div>
+                        <div class="button me-1">
+                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">4주차</button>
+                        </div>
+                    </div>
+                    <div class="col d-sm-flex btn-sm text-info"> 기간 설정 : &nbsp;&nbsp;
+                        <input class="input-group-sm btn btn-outline-info btn-sm"
+                               type="date"
+                               id="dateFrom"
+                               max="2023-06-20"
+                               min="2023-06-05"
+                               value="2023-06-15">
+                        <span>  &nbsp;&nbsp; ~ &nbsp;&nbsp; </span>
+                        <input class="input-group-sm btn btn-outline-info btn-sm"
+                               type="date"
+                               id="dateTo"
+                               max="2023-07-20"
+                               min="2023-07-05"
+                               value="2023-07-10">
+                        <div class="col d-sm-flex px-1">
+                            <button type="button" class="btn btn-info text-nowrap btn-sm"><span class="fas fa-search"></span><span class="nav-link-text ps-2">조회</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center;">
+                <img th:src="@{/assets/img/sampleImg.png}" class="img-fluid"/>
+            </p>
+            <div>
+                <div class="row align-content-center">
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#saveModal">
+                            <span class="fas fa-file-upload"></span><span class="nav-link-text ps-2">저장하기</span></button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-success position-relative" data-bs-toggle="modal" data-bs-target="#openModal">
+                            <span class="fas fa-lock-open"></span><span class="nav-link-text ps-2">자료공개</span></button>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!--    [저장하기]  Modal 알림-->
+    <div class="modal fade" id="saveModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary"><span class="fas fa-file-upload"></span>&nbsp;&nbsp; 자료시스템에 저장</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>지금까지 작성한 내용을 자료취합 시스템에 저장하겠습니까?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary">
+                        <span class="fas fa-file-upload"></span><span class="nav-link-text ps-2">변경사항 저장</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    [자료공개]  Modal 알림-->
+    <div class="modal" id="openModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><span class="fab fa-leanpub"></span>&nbsp;&nbsp; 자료취합 시스템에 공개자료에 게시</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>본 문서를 공개자료에 오픈하시겠습니까?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-success">
+                        <span class="fas fa-file-upload"></span><span class="nav-link-text ps-2">자료 공개</span></button>
+                </div>
+            </div>
         </div>
     </div>
 </th:block>

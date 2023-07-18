@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- 공통 헤드-->
+<th:block th:replace="~{layout/admin/fragments/head :: headFragment}"></th:block>
+
+
+<body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+  <div class="container-fluid">
+    <div class="row min-vh-100 flex-center g-0">
+      <div class="col-lg-8 py-3 position-relative"><img class="bg-auth-circle-shape" th:src="@{/assets/img/icons/spot-illustrations/bg-shape.png}" alt="" width="250"><img class="bg-auth-circle-shape-2" src="assets/img/icons/spot-illustrations/shape-1.png" alt="" width="150">
+        <div class="card overflow-hidden z-index-1">
+          <div class="card-body p-0">
+            <div class="row g-0 h-100">
+              <div class="col-md-12 d-flex flex-center">
+                <div class="p-5 p-md-5 flex-grow-1">
+                  <h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
+                  <p th:utext="${errorMessage}">Error java.lang.NullPointerException</p>
+                  <a href="index.html" th:href="@{/index.html}">Back to Home Page</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 py-3 position-relative align-content-center text-center">
+        <p class="text-center text-warning">자료취합 시스템을 이용하기 위해서는 아래 실행 파일을<br> 다운로드하여 본인의 PC에 꼭 설치해야 합니다.</p>
+        <a class="btn btn-warning d-block mx-10" role="button" href="#">HWP UI실행 파일 설치</a>
+      </div>
+    </div>
+    <!-- 공통 하단-->
+    <th:block th:replace="~{layout/admin/fragments/footer :: footerFragment}"></th:block>
+  </div>
+</main>
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+<!-- 공통 스크립트-->
+<th:block th:replace="~{layout/admin/fragments/script :: scriptFragment}"></th:block>
+
+</body>
+
+</html>

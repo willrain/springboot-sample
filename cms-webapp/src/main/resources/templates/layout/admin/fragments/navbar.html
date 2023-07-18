@@ -4,67 +4,305 @@
 
 <!-- Navbar -->
 <th:block th:fragment="navbarFragment">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-        <div class="position-sticky pt-3 sidebar-sticky">
-            <ul class="nav flex-column">
 
-                <li class="nav-item">
-                    <a class="nav-link dropdown-indicator" href="/cms/manual">
-                        <i class="fas fa-wrench fa-lg mr-3"></i> 사용자 메뉴얼
-                    </a>
-                </li>
+    <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+        <script>
+            var navbarStyle = localStorage.getItem("navbarStyle");
+            if (navbarStyle && navbarStyle !== 'transparent') {
+                document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
+            }
+        </script>
+        <div class="d-flex align-items-center">
+            <!--  토글 햄버거 버튼 동작 안함!-->
+            <div class="toggle-icon-wrapper">
+                <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation">
+                    <span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
+                </button>
+            </div>
+            <a class="navbar-brand" href="/">
+                <div class="d-flex align-items-start py-3"><span class="font-sans-serif">자료취합시스템</span>
+                </div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+            <div class="navbar-vertical-content scrollbar">
+                <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
 
-                <li class="nav-item">
-                    <a class="nav-link dropdown-indicator" href="#">
-                        <i class="fas fa-wrench fa-lg mr-3"></i> 취합 문서 등록
+                    <!-- 사이드 바 - 대시보드 어케쓸까 -->
+                    <!-- parent pages-->
+                    <a class="btn btn-primary" href="/cms/manual" role="button" data-bs-toggle="" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon"><span class="fas fa-question-circle"></span></span><span class="nav-link-text ps-1 text-nowrap">사용자 매뉴얼</span>
+                        </div>
                     </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link dropdown-indicator" href="#">
-                        <i class="fas fa-wrench fa-lg mr-3"></i> 문서 입력자 지정
+                    <div class="col ps-0"> <hr class="mb-0 navbar-vertical-divider" style="border-color:transparent;"/> </div>
+                    <a class="btn btn-primary" href="/cms/manual/open-doc" role="button" data-bs-toggle="" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon"><span class="fas fa-door-open"></span></span><span class="nav-link-text ps-1 text-nowrap">공개 자료</span>
+                        </div>
                     </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link dropdown-indicator" href="#sysadmin" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sysadmin">
-                        <i class="fas fa-wrench fa-lg mr-3"></i> 취합 문서 보기
-                    </a>
-                    <ul class="nav collapse show" id="sysadmin">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">
-                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">주간 업무 보고</span></div>
+                    <!-- 사이드 바 - 관리자 기능 -->
+                    <li class="nav-item flex-column">
+                        <!-- label-->
+                        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                            <div class="col-auto navbar-vertical-label">관리자 기능</div>
+                            <div class="col ps-0">
+                                <hr class="mb-0 navbar-vertical-divider" style="border-color:transparent;"/>
+                            </div>
+                        </div>
+                        <!-- parent pages-->
+                        <a class="btn btn-primary col-12" href="/cms/doctype/doc-reg" role="button" data-bs-toggle="" aria-expanded="false">
+                            <div class="d-flex align-items-center" >
+                                <span class="nav-link-icon"><span class="fas fa-calendar-alt"></span></span><span class="nav-link-text ps-1 text-nowrap">취합문서 등록</span>
+                            </div>
+                        </a>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" style="border-color:transparent;"/>
+                        </div>
+                        <!-- parent pages-->
+                        <a class="btn btn-primary col-12" href="/cms/doctype/set-input-person" role="button" data-bs-toggle="" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1 text-nowrap">문서 입력자 지정</span>
+                            </div>
+                        </a>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" style="border-color:transparent;"/>
+                        </div>
+                        <!-- parent pages-->
+                        <a class="btn btn-primary col-12" href="/cms/doctype/docs-status" role="button" data-bs-toggle="" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><span class="far fa-clone"></span></span><span class="nav-link-text ps-1 text-nowrap">취합 문서 현황</span>
+                            </div>
+                        </a>
+                        <div class="col ps-0 bg-transparent">
+                            <hr class="mb-0 navbar-vertical-divider" style="border-color:transparent;"/>
+                        </div>
+                        <!-- parent pages-->
+                        <a class="btn btn-falcon-info col-12 dropdown-indicator" href="#events" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="events">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><span class="fas fa-file-medical"></span></span>
+                                <span class="nav-link-text ps-1">취합 문서 보기</span>
+                            </div>
+                        </a>
+                        <ul class="nav collapse" id="events">
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/weekly" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center mt-1 text-info"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">주간 업무 보고</span>
+                                </div>
                             </a>
-                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">
-                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">월간 업무 보고</span></div>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/monthly" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">월간 업무 보고</span>
+                                </div>
                             </a>
-                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">
-                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">민원 처리 보고</span></div>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/complaint" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">민원 처리 보고</span>
+                                </div>
                             </a>
-                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">
-                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">예상 집행 보고</span></div>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/budget" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">예산 집행 보고</span>
+                                </div>
                             </a>
-                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">
-                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">...</span></div>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/business" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">사업 추진 보고</span>
+                                </div>
                             </a>
-                        </li>
-                    </ul>
-                </li>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/personnel" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">인사 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/safety" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">안전 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/environment" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">환경 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/informatization" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">정보화 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/doctype/promotion" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">홍보 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                        </ul>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link dropdown-indicator" href="#">
-                        <i class="fas fa-wrench fa-lg mr-3"></i> 사장님 공약사항
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link dropdown-indicator" href="#" role="button" >
-                        <i class="fas fa-wrench fa-lg mr-3"></i> 입력 문서 전체 보기
-                    </a>
-                </li>
-            </ul>
+                    <!-- 사이드 바 - 입력자 기능 -->
+                    <li class="nav-item flex-column">
+                        <!-- label-->
+                        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                            <div class="col-auto navbar-vertical-label">입력자 기능</div>
+                            <div class="col ps-0">
+                                <hr class="mb-0 navbar-vertical-divider" style="border-color:transparent;" />
+                            </div>
+                        </div>
+                        <!-- parent pages-->
+                        <a class="btn btn-primary col-12" href="/cms/input/docs-status" role="button" data-bs-toggle="" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><span class="far fa-clone"></span></span><span class="nav-link-text ps-1 text-nowrap">입력 문서 현황</span>
+                            </div>
+                        </a>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" style="border-color:transparent;" />
+                        </div>
+                        <!-- parent pages-->
+                        <a class="btn btn-falcon-info col-12 dropdown-indicator" href="#user" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="user">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><span class="fas fa-file-signature"></span></span>
+                                <span class="nav-link-text ps-1 text-nowrap">입력 문서 보기</span>
+                            </div>
+                        </a>
+                        <ul class="nav collapse" id="user">
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/weekly" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center mt-1 text-info"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">주간 업무 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/monthly" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">월간 업무 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/complaint" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">민원 처리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/budget" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">예산 집행 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/business" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">사업 추진 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/personnel" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">인사 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/safety" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">안전 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/environment" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">환경 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/informatization" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">정보화 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/cms/input/promotion" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="fas fa-file-signature"></span><span class="nav-link-text ps-1">홍보 관리 보고</span>
+                                </div>
+                            </a>
+                                <!-- more inner pages-->
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+
+
+<!--    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">-->
+<!--        <div class="position-sticky pt-3 sidebar-sticky">-->
+<!--            <ul class="nav flex-column">-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link dropdown-indicator" href="/cms/manual">-->
+<!--                        <i class="fas fa-wrench fa-lg mr-3"></i> 사용자 메뉴얼-->
+<!--                    </a>-->
+<!--                </li>-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link dropdown-indicator" href="#">-->
+<!--                        <i class="fas fa-wrench fa-lg mr-3"></i> 취합 문서 등록-->
+<!--                    </a>-->
+<!--                </li>-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link dropdown-indicator" href="#">-->
+<!--                        <i class="fas fa-wrench fa-lg mr-3"></i> 문서 입력자 지정-->
+<!--                    </a>-->
+<!--                </li>-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link dropdown-indicator" href="#sysadmin" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sysadmin">-->
+<!--                        <i class="fas fa-wrench fa-lg mr-3"></i> 취합 문서 보기-->
+<!--                    </a>-->
+<!--                    <ul class="nav collapse show" id="sysadmin">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">-->
+<!--                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">주간 업무 보고</span></div>-->
+<!--                            </a>-->
+<!--                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">-->
+<!--                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">월간 업무 보고</span></div>-->
+<!--                            </a>-->
+<!--                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">-->
+<!--                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">민원 처리 보고</span></div>-->
+<!--                            </a>-->
+<!--                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">-->
+<!--                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">예상 집행 보고</span></div>-->
+<!--                            </a>-->
+<!--                            <a href="#" class="nav-link" data-bs-toggle="" aria-expanded="false">-->
+<!--                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">...</span></div>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link dropdown-indicator" href="#">-->
+<!--                        <i class="fas fa-wrench fa-lg mr-3"></i> 사장님 공약사항-->
+<!--                    </a>-->
+<!--                </li>-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link dropdown-indicator" href="#" role="button" >-->
+<!--                        <i class="fas fa-wrench fa-lg mr-3"></i> 입력 문서 전체 보기-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </nav>-->
 </th:block>
 
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin/layout}">
+
+<th:block layout:fragment="content">
+  <div class="container-fluid">
+    <main class="px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-end pt-3 pb-2 mb-3 border-bottom">
+        <h4 class="text-primary fw-bold"><span class="fas fa-door-open pe-1"></span>공개 자료</h4>
+      </div>
+      <div class="table-responsive">
+
+        <table class="table table-hover table-striped table-bordered text-center" style="font-size: 14px">
+          <thead>
+          <tr >
+            <th class="text-nowrap">일자</th>
+            <th class="text-nowrap">문서명</th>
+            <th class="text-nowrap">작성 부서</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>2023.7.7</td>
+            <td class="text-nowrap text-primary">
+              <a class="nav-link" href="input_weekly.html" data-bs-toggle="" aria-expanded="false">주간 업무 보고</a>
+            </td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
+          </tr>
+          <tr>
+            <td>2023.6.1</td>
+            <td class="text-nowrap text-primary">
+              <a class="nav-link" href="input_weekly.html" data-bs-toggle="" aria-expanded="false">월간 업무 보고</a>
+            </td>
+            <td class="text-start">기획예산과, 행정지원과, 감사실, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
+          </tr>
+          <tr>
+            <td>2023.5.1</td>
+            <td class="text-nowrap text-primary">
+              <a class="nav-link" href="input_weekly.html" data-bs-toggle="" aria-expanded="false">민원 처리 보고</a>
+            </td>
+            <td class="text-start">행정지원과, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
+          </tr>
+          <tr>
+            <td>2023.4.1</td>
+            <td class="text-nowrap text-primary">예산 집행 보고</td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 주택정책과</td>
+          </tr>
+          <tr>
+            <td>2023.3.1</td>
+            <td class="text-nowrap text-primary">사업 추진 보고</td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
+          </tr>
+          <tr>
+            <td>2023.2.1</td>
+            <td class="text-nowrap text-primary">인사 관리 보고</td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
+          </tr>
+          <tr>
+            <td>2023.1.1</td>
+            <td class="text-nowrap text-primary">안전 관리 보고</td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
+          </tr>
+          <tr>
+            <td>2022.12.1</td>
+            <td class="text-nowrap text-primary">환경 관리 보고</td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과</td>
+          </tr>
+          <tr>
+            <td>2022.11.7</td>
+            <td class="text-nowrap text-primary">정보화 관리 보고</td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
+          </tr>
+          <tr>
+            <td>2022.10.1</td>
+            <td class="text-nowrap text-primary">홍보 관리 보고</td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 감사실, 도시계획과, 주택정책과</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</th:block>
+
+</html>
+
+<script type="text/javascript">
+
+</script>
