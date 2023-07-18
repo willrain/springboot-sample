@@ -40,8 +40,17 @@ public class SecurityConfig { //extends BaseSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		http
 			.authorizeHttpRequests(authorize -> authorize
-				.anyRequest().permitAll()
+				.requestMatchers(
+						HttpMethod.GET,
+						"**"
+				).permitAll()
+				.requestMatchers(
+						HttpMethod.POST,
+						"**"
+				).permitAll()
 				//.requestMatchers("/cms", "/cms/**").hasRole("ADMIN")
+				.anyRequest().authenticated()
+
 			);
 
 		return http.build();

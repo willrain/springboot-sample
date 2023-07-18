@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/usermanual")
+@RequestMapping("/cms/manual")
 public class ManualController extends BaseController {
 
     @GetMapping(path = {"", "/"})

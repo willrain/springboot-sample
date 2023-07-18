@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/doctype")
+@RequestMapping("/cms/doctype")
 public class DoctypeController extends BaseController {
 
     @GetMapping(path = {"", "/"})

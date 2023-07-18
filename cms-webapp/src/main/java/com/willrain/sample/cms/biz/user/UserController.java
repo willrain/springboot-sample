@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/admin/user")
+@RequestMapping("/cms/user")
 public class UserController extends BaseController {
 
     @GetMapping(path = {"", "/"})
