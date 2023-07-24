@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin/layout}">
+
+<th:block layout:fragment="content">
+    <div class="container-fluid">
+        <h1>어드민</h1>
+        <div class="row" id="mbrList">
+<!--            <div th:if="${mbrList.totalCnt eq 0}" class="alert alert-light" role="alert" id="noMbrAvailable">-->
+<!--                <span>유저 정보가 없습니다.</span>-->
+<!--            </div>-->
+<!--            <main>-->
+<!--                <div th:unless="${mbrList.totalCnt eq 0}" th:each="mbr : ${mbrList.dtoList}">-->
+<!--                    <a href="#" th:href="@{/cms/admin/user/{mbrId}(mbrId = ${mbr.mbrId})}" target="_blank" class="btn"></a>-->
+<!--                </div>-->
+<!--            </main>-->
+        </div>
+    </div>
+</th:block>
+
+</html>
+
+<script type="text/javascript">
+
+</script>

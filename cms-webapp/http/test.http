@@ -1,0 +1,5 @@
+### test
+GET localhost:8080/cms/admin/user/
+
+### test api
+GET localhost:8080/cms/admin/user/api
