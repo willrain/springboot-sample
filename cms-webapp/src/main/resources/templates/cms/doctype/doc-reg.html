@@ -10,7 +10,7 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-end pt-3 pb-2 mb-3 border-bottom">
         <h4 class="text-primary fw-bold"><span class="fas fa-calendar-alt pe-1"></span>취합문서 등록</h4>
       </div>
-      <P class="text-info">신규로 등록 할 취합문서 내용을 등록합니다.</P>
+      <P class="text-info">&nbsp;&nbsp;&nbsp; 취합문서의 정보를 등록합니다.</P>
       <div>
         <form>
           <div class="table-responsive d-flex justify-content-center">
@@ -18,23 +18,36 @@
             <table class="table table-hover table-sm w-auto m-2">
               <tr class="align-middle" style="height: 80px">
                 <th><p class="text-primary ">● 취합 문서명</p></th>
-                <td>
-                  <input class="form-control rounded-3" type="text" name="doc-title">
+                <td colspan="2">
+                  <!--                                                    <input class="form-control rounded-3" type="text" name="doc-title">-->
+                  <select class="form-select form-select" aria-label=".form-select-sm example">
+                    <option selected>취합 문서명을 선택해 주세요</option>
+                    <option value="1">주간 업무 보고</option>
+                    <option value="2">월간 업무보고</option>
+                    <option value="3">민원 처리보고</option>
+                    <option value="4">예산 집행 보고</option>
+                    <option value="5">사업 추진 보고</option>
+                    <option value="6">인사 관리 보고</option>
+                    <option value="7">안전 관리 보고</option>
+                    <option value="8">환경 관리 보고</option>
+                    <option value="9">정보화 관리 보고</option>
+                    <option value="10">홍보 관리 보고</option>
+                  </select>
                 </td>
               </tr>
               <tr class="align-middle" style="height: 80px">
-                <th><p class="text-primary text-nowrap">● 문서서식 파일 업로드</p></th>
+                <th><p class="text-primary text-nowrap">● 취합문서 샘플 업로드</p></th>
                 <td>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input px-3"
                            id="validatedCustomFile" required>
-                    <label class="custom-file-label text-info" for="validatedCustomFile">업로드 할 한컴 파일을 선택해 주세요</label>
+                    <label class="custom-file-label text-info" for="validatedCustomFile">업로드 할 파일을 선택해 주세요</label>
                     <div class="invalid-feedback">잘못된 사용자 지정 파일입니다.</div>
                   </div>
                 </td>
               </tr>
               <tr class="align-middle" style="height: 80px">
-                <th> <p class="text-primary">● 비고</p></th>
+                <th> <p class="text-primary">● 비고 설명</p></th>
                 <td>
                   <div class="form-floating">
                                                         <textarea class="form-control rounded-3" placeholder="서식문서 자세한 설명"
@@ -42,6 +55,38 @@
                   </div>
                 </td>
                 <!--                                                <td><input class="form-control mx-3" type="text" name="doc-etc"></td>-->
+              </tr>
+              <tr class="align-middle">
+                <th> <p class="text-primary">● 마감일 요일 지정</p></th>
+                <td>
+                  <div class="form-check">
+                    <fieldset>
+                      <legend></legend>
+                      월 <input type="radio" name="week" value="monday" />
+                      &nbsp&nbsp  화 <input type="radio" name="week" value="tuesday" />
+                      &nbsp&nbsp  수 <input type="radio" name="week" value="wednesday" />
+                      &nbsp&nbsp  목 <input type="radio" name="week" value="thursday" />
+                      &nbsp&nbsp  금 <input type="radio" name="week" value="friday" />
+                      &nbsp&nbsp  토 <input type="radio" name="week" value="saturday" />
+                      &nbsp&nbsp  일 <input type="radio" name="week" value="sunday" checked />
+                    </fieldset>
+                  </div>
+                </td>
+                <td>
+                                                    <span class="form-check text-start">
+                                                        마감 시간 :&nbsp  <input type="time">
+                                                    </span>
+                </td>
+              </tr>
+              <tr class="align-middle">
+                <th> <p> </p></th>
+                <td>
+                  <p class="text-info" > 마감일 개별 변경은 [취합문서 현황]에서 단건별로 변경가능합니다 </p>
+                </td>
+                <td>
+                  <p> </p>
+                </td>
+              </tr>
               </tr>
             </table>
           </div>
