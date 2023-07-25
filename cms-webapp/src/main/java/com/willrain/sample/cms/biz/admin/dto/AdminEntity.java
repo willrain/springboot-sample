@@ -1,4 +1,4 @@
-package com.willrain.sample.cms.biz.admin.entity;
+package com.willrain.sample.cms.biz.admin.dto;
 
 import com.willrain.sample.cms.biz.admin.dto.AdminModel;
 import com.willrain.sample.cms.common.dto.BaseEntity;
