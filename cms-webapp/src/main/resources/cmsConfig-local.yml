@@ -4,3 +4,7 @@ spring:
     url: jdbc:log4jdbc:mariadb://lisa-mariadb.infra.namp.io:3306/demo?characterEncoding=UTF-8&useTimezone=true&serverTimezone=Asia/Seoul
     username: demo
     password: demo1234
+
+logging:
+  level:
+    root: INFO
