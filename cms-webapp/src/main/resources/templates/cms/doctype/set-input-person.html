@@ -13,10 +13,10 @@
       </div>
       <div class="table-responsive col-md-11">
         <table class="table table-hover table-striped text-center" style="font-size: 14px">
-          <thead>
+          <thead class="table-primary">
           <tr>
             <th scope="col" class="text-nowrap">문서명</th>
-            <th scope="col" class="text-nowrap">입력자</th>
+            <th scope="col" class="text-nowrap">입력 부서</th>
             <th scope="col" class="text-nowrap">입력자 지정</th>
           </tr>
           </thead>
@@ -134,15 +134,14 @@
               </tr>
               <tr>
                 <td>행정지원과</td>
-                <td class="text-nowrap">고형식
-                  <a class="btn btn-outline-primary btn-sm" role="button" data-bs-toggle="modal" href="#exampleModal2" data-bs-whatever="행정지원과" >입력 담당자 선택</a>
+                <td class="text-nowrap"> 미 작성, 입력자 없음, [작성] 선택에만 나옴
                 </td>
                 <th class="text-nowrap">
                   <div class="btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check btn-sm" name="btnradio1" id="write-btnradio3" autocomplete="off" checked>
+                    <input type="radio" class="btn-check btn-sm" name="btnradio1" id="write-btnradio3" autocomplete="off">
                     <label class="btn btn-outline-primary" for="write-btnradio3"> 작성</label>
 
-                    <input type="radio" class="btn-check btn-sm" name="btnradio1" id="write-btnradio4" autocomplete="off">
+                    <input type="radio" class="btn-check btn-sm" name="btnradio1" id="write-btnradio4" autocomplete="off" checked>
                     <label class="btn btn-outline-primary" for="write-btnradio4"> 미 작성</label>
                   </div>
                 </th>
@@ -240,6 +239,7 @@
 
               </tbody>
             </table>
+            <button type="button" class="btn btn-primary">저장</button>
           </div>
         </div>
         <div class="modal-footer">
@@ -313,8 +313,8 @@
             </table>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary btn-close-falcon-container">저장</button>
+        <div class="modal-footer align-content-center text-center">
+          <button type="button" class="btn btn-secondary btn-close-falcon-container">저장</button>
         </div>
       </div>
     </div>

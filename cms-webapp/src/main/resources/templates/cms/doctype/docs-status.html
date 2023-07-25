@@ -13,45 +13,54 @@
       </div>
       <div class="table-responsive">
         <table class="table table-hover table-striped table-bordered text-center" style="font-size: 14px">
-          <thead>
+          <thead class="table-primary">
           <tr>
             <th class="text-nowrap">문서명</th>
-            <th class="text-nowrap">입력</th>
-            <th class="text-nowrap">미입력</th>
+            <th class="text-nowrap">입력 부서</th>
+            <th class="text-nowrap">미입력 부서</th>
             <th class="text-nowrap">마감일</th>
+            <th class="text-nowrap">다음차 문서 생성</th>
           </tr>
           </thead>
           <tbody>
           <tr>
             <th class="text-nowrap text-primary">주간 업무 보고</th>
-            <td><span style="float:left;">기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 도시계획과, 주택정책과</span></td>
-            <td><span style="float:left;">건설기획과</span></td>
+            <td class="text-start">기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 도시계획과, 주택정책과</td>
+            <td class="text-start">건설기획과</td>
             <td>2023. 07. 21.   24:00
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
+            </td>
+            <td>
             </td>
           </tr>
           <tr>
             <th class="text-nowrap text-primary">월간 업무 보고</th>
-            <td><span style="float:left;">기획예산과</span></td>
-            <td><span style="float:left;">행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 도시계획과, 주택정책과</span></td>
+            <td class="text-start">기획예산과</td>
+            <td class="text-start">행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
             <td>2023. 07. 22.   13:00
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
+            </td>
+            <td>
             </td>
           </tr>
           <tr>
             <th class="text-nowrap text-primary">민원 처리 보고</th>
             <td>기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 도시계획과, 주택정책과</td>
             <td></td>
-            <td>2023. 07. 21.   24:00
-              <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
+            <td class="text-primary text-center">2023. 07. 01. 24:00
+              <p class="text-primary text-center fw-bold"> 마감 종결</p>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newModal">신규 생성</button>
             </td>
           </tr>
           <tr>
             <th class="text-nowrap text-primary">예산 집행 보고</th>
-            <td>기획예산과, 행정지원과, 정보화과, 감사실, 복지정책과, 건설기획과, 도시계획과</td>
-            <td> 주택정책과</td>
-            <td>2023. 07. 21.   24:00
-              <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
+            <td></td>
+            <td></td>
+            <td>최초 문서가 없는 경우</td>
+            <td>
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newModal">신규 생성</button>
             </td>
           </tr>
           <tr>
@@ -61,6 +70,7 @@
             <td>2023. 07. 21.   24:00
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
             </td>
+            <td></td>
           </tr>
           <tr>
             <th class="text-nowrap text-primary">인사 관리 보고</th>
@@ -69,6 +79,7 @@
             <td>2023. 07. 21.   24:00
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
             </td>
+            <td></td>
           </tr>
           <tr>
             <th class="text-nowrap text-primary">안전 관리 보고</th>
@@ -77,6 +88,7 @@
             <td>2023. 07. 21.   24:00
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
             </td>
+            <td></td>
           </tr>
           <tr>
             <th class="text-nowrap text-primary">환경 관리 보고</th>
@@ -85,6 +97,7 @@
             <td>2023. 07. 21.   24:00
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
             </td>
+            <td></td>
           </tr>
           <tr>
             <th class="text-nowrap text-primary">성과목표 관리현황</th>
@@ -93,6 +106,7 @@
             <td>2023. 07. 21.   24:00
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
             </td>
+            <td></td>
           </tr>
           <tr>
             <th class="text-nowrap text-primary">홍보 관리 보고</th>
@@ -101,6 +115,7 @@
             <td>2023. 07. 21.   24:00
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">마감일 수정</button>
             </td>
+            <td></td>
           </tr>
 
           </tbody>
@@ -111,10 +126,10 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title text-primary fs-2" id="exampleModalLabel">마감일 수정</h4>
+                <h4 class="modal-title text-secondary fs-2" id="exampleModalLabel">마감일 수정</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body text-center">
+              <div class="modal-body text-center text-secondary">
 
                 일자 :&nbsp<input type="date" value="today">&nbsp&nbsp
 
@@ -122,8 +137,33 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                <button type="button" class="btn btn-primary">마감일 수정</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-secondary">마감일 수정</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 다음차 취합문서 생성 Modal -->
+        <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title text-primary fs-2" id="newModalLabel">다음차 {취합문서명} 신규 생성 및 마감일 설정</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-sm-center">
+
+                일자 :&nbsp<input type="date" value="today">&nbsp&nbsp
+
+                마감 시간 :&nbsp <input type="time" value="24:00">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary">다음차 {취합문서명} 신규 생성</button>
+                <!-- 생성 되었습니다. 팝업 만들것 -->
               </div>
             </div>
           </div>
