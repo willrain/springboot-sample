@@ -5,7 +5,7 @@
 <!-- Navbar -->
 <th:block th:fragment="navbarFragment">
 
-    <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+    <nav class="navbar navbar-light navbar-vertical navbar-expand-xl z-index-3">
         <script>
             var navbarStyle = localStorage.getItem("navbarStyle");
             if (navbarStyle && navbarStyle !== 'transparent') {
@@ -20,7 +20,8 @@
                 </button>
             </div>
             <a class="navbar-brand" href="/">
-                <div class="d-flex align-items-start py-3"><span class="font-sans-serif">자료취합시스템</span>
+                <div class="d-flex align-items-start py-3">
+                    <img class="me-2" th:src="@{/assets/img/logo.png}" alt="" width="40" height="40"><span class="font-sans-serif ">자료취합시스템</span>
                 </div>
             </a>
         </div>
