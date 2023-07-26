@@ -2,6 +2,7 @@
 package com.willrain.sample.cms.biz.admin.controller;
 
 import com.willrain.sample.cms.biz.admin.dto.AdminModel;
+import com.willrain.sample.cms.biz.admin.dto.DepartmentModel;
 import com.willrain.sample.cms.biz.admin.service.AdminService;
 import com.willrain.sample.cms.common.controller.BaseController;
 import com.willrain.sample.cms.common.dto.PageEntity;
@@ -29,12 +30,17 @@ public class AdminController extends BaseController {
     public String index(Pageable pageable, Model model) throws Exception {
 
         PageEntity<AdminModel> pageEntity = adminService.getList(new PageEntity<>(pageable));
+//        PageEntity<DepartmentModel> pageEntity = adminService.getUserList(new PageEntity<>(pageable));
 
         log.info("pageEntity = {}", pageEntity);
-        model.addAttribute("mbrList", pageEntity);
+        model.addAttribute("userList", pageEntity);
 
         return "cms/admin/index";
     }
+
+
+
+
 //    @GetMapping("/api")
 //    public ResponseEntity<List<AdminModel>> getList(Pageable page, AdminModel model) throws Exception {
 //        log.info("# AdminModel = {}", model);
