@@ -3,6 +3,18 @@
 <configuration scan="true" scanPeriod="60 seconds">
 -->
 <configuration>
+    <!-- 로그 패턴에 색상 적용 %clr(pattern){color} -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+
+    <!--springProfile 태그를 사용하면 logback 설정파일에서 복수개의 프로파일을 설정할 수 있다.-->
+    <springProfile name="local">
+        <property resource="cmsConfig-local.yml"/>
+    </springProfile>
+
+    <springProfile name="prod">
+        <property resource="cmsConfig-prod.yml"/>
+    </springProfile>
+
 
     <!--Environment 내의 프로퍼티들을 개별적으로 설정할 수도 있다.-->
     <springProperty scope="context" name="LOG_LEVEL" source="logging.level.root"/>
@@ -10,12 +22,13 @@
     <springProperty scope="context" name="LOG_FILE_NAME" source="logging.file.name"/>
 
     <!-- pattern -->
-    <property name="LOG_PATTERN" value="%-5level %d{yy-MM-dd HH:mm:ss}[%thread] [%logger{36}:%line] - %msg%n"/>
+    <property name="CONSOLE_LOG_PATTERN" value="%clr(%-5level) %d{yy-MM-dd HH:mm:ss}[%thread] %clr([%logger{36}:%line]){cyan} - %msg%n"/>
+    <property name="FILE_LOG_PATTERN" value="%-5level %d{yy-MM-dd HH:mm:ss}[%thread] [%logger{36}:%line] - %msg%n"/>
 
     <!-- Console Appender -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 
@@ -27,7 +40,7 @@
         </rollingPolicy>
 
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 

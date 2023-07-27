@@ -37,13 +37,12 @@ server:
       remote-ip-header: "x-real-ip"
       protocol-header: "x-forwarded-proto"
 
-logging:
-  level:
-    org:
-      hibernate: DEBUG
-      springframework: DEBUG
-    root: INFO
-  file:
-    name: ${spring.application.name}
-    path: ./logs
-
+#logging:
+#  level:
+#    org:
+#      hibernate: DEBUG
+#      springframework: DEBUG
+#    root: INFO
+#  file:
+#    name: ${spring.application.name}
+#    path: ./logs
