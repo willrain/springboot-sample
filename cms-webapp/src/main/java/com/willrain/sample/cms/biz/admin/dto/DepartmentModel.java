@@ -22,7 +22,7 @@ public class DepartmentModel extends BaseModel{
     public DepartmentModel(DepartmentEntity entity) {
         this.deptId = entity.getDeptId();
         this.deptName = entity.getDeptName();
-        this.adminModelList.addAll(entity.getAdminEntityList().stream().map(AdminEntity::toModel).toList());
+//        this.adminModelList.addAll(entity.getAdminEntityList().stream().map(AdminEntity::toModel).toList());
     }
 
     @Override

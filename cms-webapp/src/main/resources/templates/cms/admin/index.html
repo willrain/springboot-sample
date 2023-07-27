@@ -4,6 +4,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/admin/layout}">
 
+
 <th:block layout:fragment="content">
     <div class="container-fluid">
         <h1>ADMIN - 유저관리</h1>
@@ -12,29 +13,48 @@
                 <span>유저 정보가 없습니다.</span>
             </div>
             <main>
-                <table class="table table-hover table-striped table-bordered text-center" style="font-size: 14px">
+                <div class="row mb-3">
+                    <div class="col-md-3 mb-1">
+                        부서 이름
+                        <select id="searchDeptId" class="form-select">
+                            <option value="">전체</option>
+                            <option th:each="dept : ${departmentMap}" th:value="${dept.key}" >[[${dept.value}]]</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-1">
+                        사용 여부
+                        <select id="searchUseYn" class="form-select">
+                            <option value="">전체</option>
+                            <option th:each="useYn : ${useYnMap}" th:value="${useYn.key}" >[[${useYn.value}]]</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-end">
+                        <button type="button" class="btn btn-secondary" onclick="MbrService.loadList(1)">조회</button>
+                    </div>
+                </div>
+                <table id="user_list_table" class="table table-hover table-striped table-bordered text-center" style="font-size: 14px">
                     <thead>
                         <tr>
                             <th>유저 ID</th>
                             <th>유저 이름</th>
-                            <th>부서 ID</th>
+<!--                            <th>부서 ID</th>-->
                             <th>부서 이름</th>
                             <th>권한 코드</th>
                             <th>사용 여부</th>
-                            <th>생성 일자</th>
+<!--                            <th>생성 일자</th>-->
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:unless="${userList.totalCnt eq 0}" th:each="user : ${userList.dtoList}">
-                            <td th:text="${user.getUserId()}" th:onclick="|location.href='@{/cms/admin/user/{userId}(userId = ${user.userId})}'|">
+                        <tr th:unless="${userList.totalCnt eq 0}" th:each="user : ${userList.dtoList}" th:onclick="|location.href='@{/cms/admin/user/{userId}(userId = ${user.userId})}'|">
+                            <td th:text="${user.getUserId()}">
                             </td>
-                            <td th:text="${user.getUserName()}" th:onclick="|location.href='@{/cms/admin/user/{userId}(userId = ${user.userId})}'|">
+                            <td th:text="${user.getUserName()}">
                             </td>
-                            <td th:text="${user.getDeptId()}"></td>
+<!--                            <td th:text="${user.getDeptId()}"></td>-->
                             <td th:text="${user.getDeptName()}"></td>
                             <td th:text="${user.getAuthorCd()}"></td>
                             <td th:text="${user.getUseYn()}"></td>
-                            <td th:text="${user.getCreatedAt()}"></td>
+<!--                            <td th:text="${user.getCreatedAt()}"></td>-->
                         </tr>
                     </tbody>
                 </table>
@@ -45,7 +65,15 @@
 </th:block>
 
 </html>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" th:src="'/js/cms/admin/admin_service.js?'+${#dates.format(#calendars.createNow(), 'yyyyMMddHHmmss')}" ></script>
+<script type="text/javascript" th:src="'/js/cms/admin/admin_ui.js?'+${#dates.format(#calendars.createNow(), 'yyyyMMddHHmmss')}" ></script>
+<!--<script type="text/javascript">-->
+<!--    $(document).ready(function(){-->
+<!--        console.log("=== getList");-->
+<!--        MbrService.loadList(1);-->
+<!--        //np.config.modalZIndex = 1;-->
+<!--        //np.modal.open('modal_mbrDetail');-->
+<!--    });-->
 
-<script type="text/javascript">
-
-</script>
+<!--</script>-->

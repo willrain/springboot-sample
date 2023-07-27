@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.beans.Transient;
+import java.util.List;
 import java.util.stream.Stream;
 
 @Slf4j
@@ -27,14 +28,20 @@ public class AdminService extends BaseServiceImplWithJpa<AdminModel, AdminEntity
         this.departmentRepository = departmentRepository;
     }
 
-
-    @Transactional
-    public PageEntity<DepartmentModel> getUserList(PageEntity<DepartmentModel> pageEntity) throws Exception {
-        Page<DepartmentEntity> page = departmentRepository.findAll(toPageable(pageEntity));
-        Stream<DepartmentModel> stream = page.getContent().stream().map(entity -> entity.toModel());
-
-        pageEntity.setTotalCnt(page.getTotalElements());
-        pageEntity.setDtoList(stream.toList());
-        return pageEntity;
+    public List<DepartmentModel> getDepartmentList() {
+        List<DepartmentEntity> list = departmentRepository.findAll();
+        return list.stream().map(entity -> entity.toModel()).toList();
     }
+
+
+
+//    @Transactional
+//    public PageEntity<DepartmentModel> getUserList(PageEntity<DepartmentModel> pageEntity) throws Exception {
+//        Page<DepartmentEntity> page = departmentRepository.findAll(toPageable(pageEntity));
+//        Stream<DepartmentModel> stream = page.getContent().stream().map(entity -> entity.toModel());
+//
+//        pageEntity.setTotalCnt(page.getTotalElements());
+//        pageEntity.setDtoList(stream.toList());
+//        return pageEntity;
+//    }
 }

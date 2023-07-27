@@ -27,6 +27,7 @@ public class AdminEntity extends BaseEntity {
     @JoinColumn(name = "DEPT_ID")
     private DepartmentEntity departmentEntity;
 
+
     @Formula("(SELECT d.DEPT_NAME FROM DEPARTMENT d WHERE d.DEPT_ID = DEPT_ID)")
     private String deptName;
 
@@ -43,6 +44,10 @@ public class AdminEntity extends BaseEntity {
         this.userId = model.getUserId();
         this.userName = model.getUserName();
 //        this.deptId = model.getDeptId();
+        DepartmentModel e = new DepartmentModel();
+                e.setDeptId(model.getDeptId());
+//                e.setDeptId(model.getDeptId());
+        this.departmentEntity = new DepartmentEntity(e);
         this.deptName = model.getDeptName();
         this.authorCd = model.getAuthorCd();
         this.useYn = model.getUseYn();

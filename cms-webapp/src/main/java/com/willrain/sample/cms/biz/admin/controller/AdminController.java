@@ -13,11 +13,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -25,6 +27,33 @@ import java.util.List;
 @RequestMapping("/cms/admin/user")
 public class AdminController extends BaseController {
     private final AdminService adminService;
+
+
+    @ModelAttribute("authorCdMap")
+    public Map<String, String> authorCd() {
+        Map<String, String> authorCd = new LinkedHashMap<>();
+        authorCd.put("A", "어드민");
+        authorCd.put("Q", "취합자");
+        authorCd.put("U", "입력자");
+        return authorCd;
+    }
+    @ModelAttribute("useYnMap")
+    public Map<String, String> useYn() {
+        Map<String, String> useYn = new LinkedHashMap<>();
+        useYn.put("Y", "활성화");
+        useYn.put("N", "비활성화");
+        return useYn;
+    }
+
+    @ModelAttribute("departmentMap")
+    public Map<Long, String> department() {
+        List<DepartmentModel> models = adminService.getDepartmentList();
+        Map<Long, String> useYn = new LinkedHashMap<>();
+        for (DepartmentModel model : models) {
+            useYn.put(model.getDeptId(), model.getDeptName());
+        }
+        return useYn;
+    }
 
     @GetMapping(path = {"", "/"})
     public String index(Pageable pageable, Model model) throws Exception {
@@ -37,12 +66,40 @@ public class AdminController extends BaseController {
 
         return "cms/admin/index";
     }
+    @GetMapping(path = {"/list"})
+    public ResponseEntity<PageEntity<AdminModel>> getList(Pageable page, AdminModel searchDto) throws Exception {
+        log.info("searchDto = {}", searchDto);
+        PageEntity pageEntity = new PageEntity<>(page);
+        pageEntity.setSearchDto(searchDto);
+
+        PageEntity<AdminModel> entity = adminService.getList(pageEntity);
+
+        return ResponseEntityUtil.ok(entity);
+    }
+
+    @GetMapping("/{userId}")
+    public String detail(@PathVariable("userId") String id, Model model) throws Exception {
+        AdminModel adminModel = adminService.getDetail(id);
+        log.info("adminModel = {}", adminModel);
+        model.addAttribute("userDetail", adminModel);
+        return "cms/admin/detail";
+    }
+
+    @PostMapping
+    public String modify(AdminModel model, RedirectAttributes redirectAttributes) throws Exception{
+        log.info("AdminModel = {}", model);
+        AdminModel adminModel = adminService.modify(model);
+
+        return "redirect:/cms/admin/user";
+//        redirectAttributes.addAttribute("userId", adminModel.getUserId()); //
+//        return "redirect:/cms/admin/user/{userId}";
+    }
 
 
 
 
 //    @GetMapping("/api")
-//    public ResponseEntity<List<AdminModel>> getList(Pageable page, AdminModel model) throws Exception {
+//    public ResponseEntity<List<AdminModel>> getListPageable(Pageable page, AdminModel model) throws Exception {
 //        log.info("# AdminModel = {}", model);
 //        PageEntity pageEntity = new PageEntity(page);
 //        pageEntity.setSearchDto(model);

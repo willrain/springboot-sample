@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin/layout}">
+
+<th:block layout:fragment="content">
+  <div class="container-fluid">
+    <h1>ADMIN - 유저 정보 수정</h1>
+    <div class="row" id="mbrList">
+      <main>
+        <div class="card-body bg-light">
+          <form class="row g-3" th:action="@{/cms/admin/user}" th:object="${userDetail}" method="post">
+            <div class="col-lg-6">
+              <label class="form-label" for="user-id">사용자 ID</label>
+              <input readonly class="form-control" id="user-id" type="text" th:field="*{userId}" />
+            </div>
+            <div class="col-lg-6">
+              <label class="form-label" for="user-name">사용자 이름</label>
+              <input class="form-control" id="user-name" type="text" th:field="*{userName}" />
+            </div>
+            <div class="col-lg-6">
+              <label class="form-label" for="author-cd">권한 코드</label>
+              <select class="form-control" id="author-cd" th:field="*{authorCd}">
+                <option th:each="authorCd : ${authorCdMap}"
+                        th:value="${authorCd.key}"
+                        th:text="${authorCd.value}"
+                        th:selected="${authorCd.key} == ${userDetail.authorCd} ? true : false">
+
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <label class="form-label" for="use-yn">사용 가능 여부</label>
+              <select class="form-control" id="use-yn" th:field="*{useYn}">
+                <option th:each="useYn : ${useYnMap}"
+                        th:value="${useYn.key}"
+                        th:text="${useYn.value}"
+                        th:selected="${useYn.key} == ${userDetail.useYn} ? true : false">
+
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-12">
+              <label class="form-label" for="dept">부서</label>
+              <select class="form-control" id="dept" th:field="*{deptId}">
+                <option th:each="dept : ${departmentMap}"
+                        th:value="${dept.key}"
+                        th:text="${dept.value}"
+                        th:selected="${dept.key} == ${userDetail.deptId} ? true : false">
+
+                </option>
+              </select>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+              <button class="btn btn-primary" type="submit">수정하기 </button>
+            </div>
+          </form>
+        </div>
+
+
+
+<!--        <table class="table table-hover table-striped table-bordered text-center" style="font-size: 14px">-->
+<!--          <thead>-->
+<!--          <tr>-->
+<!--            <th>유저 ID</th>-->
+<!--            <th>유저 이름</th>-->
+<!--            <th>부서 ID</th>-->
+<!--            <th>부서 이름</th>-->
+<!--            <th>권한 코드</th>-->
+<!--            <th>사용 여부</th>-->
+<!--            <th>생성 일자</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--&lt;!&ndash;          <tr th:unless="${userList.totalCnt eq 0}" th:each="user : ${userList.dtoList}" th:onclick="|location.href='@{/cms/admin/user/{userId}(userId = ${user.userId})}'|">&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${user.getUserId()}">&ndash;&gt;-->
+<!--&lt;!&ndash;            </td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${user.getUserName()}">&ndash;&gt;-->
+<!--&lt;!&ndash;            </td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${user.getDeptId()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${user.getDeptName()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${user.getAuthorCd()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${user.getUseYn()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${user.getCreatedAt()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;          </tr>&ndash;&gt;-->
+<!--          </tbody>-->
+<!--        </table>-->
+
+      </main>
+    </div>
+  </div>
+</th:block>
+
+</html>
+
+<script type="text/javascript">
+
+</script>

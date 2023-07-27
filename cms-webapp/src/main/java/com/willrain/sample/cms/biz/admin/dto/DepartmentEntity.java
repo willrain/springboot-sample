@@ -30,7 +30,7 @@ public class DepartmentEntity extends BaseEntity {
     public DepartmentEntity(DepartmentModel model) {
         this.deptId = model.getDeptId();
         this.deptName = model.getDeptName();
-        this.adminEntityList.addAll(model.getAdminModelList().stream().map(AdminModel::toEntity).toList());
+//        this.adminEntityList.addAll(model.getAdminModelList().stream().map(AdminModel::toEntity).toList());
     }
 
     @Override

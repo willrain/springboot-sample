@@ -236,4 +236,8 @@ public class PageEntity<Dto> {
         }
         return lastPageNo;
     }
+
+    public void setSearchDto(final Dto searchDto) {
+        this.searchDto = searchDto;
+    }
 }

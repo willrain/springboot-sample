@@ -28,6 +28,10 @@
     <script th:src="@{/vendors/list.js/list.min.js}"></script>
     <script th:src="@{/assets/js/theme.js}"></script>
 
+    <script type="text/javascript" th:src="'/js/cms/utils/paging_util.js?'+${#dates.format(#calendars.createNow(), 'yyyyMMddHHmmss')}" ></script>
+    <script type="text/javascript" th:src="'/js/cms/utils/convert_util.js?'+${#dates.format(#calendars.createNow(), 'yyyyMMddHHmmss')}" ></script>
+    <script type="text/javascript" th:src="'/js/cms/utils/validate_util.js?'+${#dates.format(#calendars.createNow(), 'yyyyMMddHHmmss')}" ></script>
+
     <script>
         var isRTL = JSON.parse(localStorage.getItem('isRTL'));
         if (isRTL) {
