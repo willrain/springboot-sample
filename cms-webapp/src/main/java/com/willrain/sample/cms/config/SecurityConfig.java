@@ -38,7 +38,7 @@ import java.util.Set;
 public class SecurityConfig { //extends BaseSecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-		http
+		http.csrf().disable().cors().disable()
 			.authorizeHttpRequests(authorize -> authorize
 				.requestMatchers(
 						HttpMethod.GET,

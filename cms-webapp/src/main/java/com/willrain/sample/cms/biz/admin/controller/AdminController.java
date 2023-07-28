@@ -86,9 +86,9 @@ public class AdminController extends BaseController {
     }
 
     @PostMapping
-    public String modify(AdminModel model, RedirectAttributes redirectAttributes) throws Exception{
-        log.info("AdminModel = {}", model);
-        AdminModel adminModel = adminService.modify(model);
+    public String modify(@ModelAttribute AdminModel userDetail, RedirectAttributes redirectAttributes) throws Exception{
+        log.info("AdminModel = {}", userDetail);
+        AdminModel adminModel = adminService.modify(userDetail);
 
         return "redirect:/cms/admin/user";
 //        redirectAttributes.addAttribute("userId", adminModel.getUserId()); //
