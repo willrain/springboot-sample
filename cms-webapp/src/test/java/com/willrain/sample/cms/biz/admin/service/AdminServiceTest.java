@@ -38,8 +38,8 @@ class AdminServiceTest {
     @Test
     public void crudTest() throws Exception {
         AdminModel adminModel = new AdminModel();
-        adminModel.setMbrId("willrain1");
-        adminModel.setMbrName("윤승환");
+        adminModel.setUserId("willrain1");
+        adminModel.setUserName("윤승환");
 
 
         // 1. 생성
@@ -51,14 +51,14 @@ class AdminServiceTest {
         // 2. 수정
         log.info("========================= 2.수정 테스트 ");
         String modifyMbrName = "윤승환11";
-        adminModel.setMbrName(modifyMbrName);
+        adminModel.setUserName(modifyMbrName);
         adminModel = adminService.modify(adminModel);
 
         // 3. 상세 조회
         log.info("========================= 3. 상세 조회 테스트 ");
-        AdminModel detail = adminService.getDetail(adminModel.getMbrId());
+        AdminModel detail = adminService.getDetail(adminModel.getUserId());
 
-        assertTrue(detail.getMbrName().equals(modifyMbrName));
+        assertTrue(detail.getUserName().equals(modifyMbrName));
 
         // 4. 삭제
 //        log.info("========================= 4. 삭제 테스트 ");

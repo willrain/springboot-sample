@@ -14,4 +14,7 @@ public class SampleBoardServiceWithJpa extends BaseServiceImplWithJpa<SampleBoar
         this.repository = sampleBoardRepository;
     }
 
+
+
+
 }

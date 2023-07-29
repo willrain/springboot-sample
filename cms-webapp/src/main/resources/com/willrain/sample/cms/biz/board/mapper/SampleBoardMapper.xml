@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.willrain.sample.cms.biz.board.mapper.SampleBoardMapper">
+
+    <sql id="listWhereStr">
+        <!-- START : searcDto 검색 조건 -->
+        <if test='searchDto != null '>
+            <if test='searchDto.boardName != null'>
+                AND ${prefix}BOARD_NAME = #{bardName:VARCHAR}
+            </if>
+        </if>
+        <!-- END  : searcDto 검색 조건 -->
+    </sql>
+
+    <sql id="SAMPLE_BOARD_COLUMNS">
+            ${prefix}BOARD_NO
+        ,   ${prefix}BOARD_NAME
+        ,   ${prefix}OWNER_ID
+        ,   ${prefix}CREATED_AT
+        ,   ${prefix}UPDATED_AT
+    </sql>
+
+    <select id="totalCnt" parameterType="com.willrain.sample.cms.common.dto.PageEntity" resultType="int">
+        /* SampleBoardMapper.xml com.willrain.sample.cms.biz.board.mapper.SampleBoardMapper.totalCnt willrain 2023.05.15 */
+        SELECT  COUNT(*)
+        FROM    SAMPLE_BOARD A
+        WHERE 1 =1
+        <include refid="listWhereStr">
+            <property name="prefix" value="A."/>
+        </include>
+    </select>
+
+    <select id="selectList" parameterType="com.willrain.sample.cms.common.dto.PageEntity" resultType="com.willrain.sample.cms.biz.board.dto.SampleBoardEntity">
+        /* SampleBoardMapper.xml com.willrain.sample.cms.biz.board.mapper.SampleBoardMapper.selectList willrain 2023.05.15 */
+        SELECT  <include refid="SAMPLE_BOARD_COLUMNS"><property name="prefix" value="A."/></include>
+        FROM    SAMPLE_BOARD A
+        WHERE   1 = 1
+        <include refid="listWhereStr">
+            <property name="prefix" value="A."/>
+        </include>
+        ORDER BY BOARD_NO DESC
+        LIMIT 	#{startRow:NUMERIC}, #{endRow:NUMERIC}
+    </select>
+
+    <select id="selectDetail" parameterType="Long" resultType="com.willrain.sample.cms.biz.board.dto.SampleBoardEntity">
+        /* SampleBoardMapper.xml com.willrain.sample.cms.biz.board.mapper.SampleBoardMapper.selectDetail willrain 2023.05.15 */
+        SELECT
+                <include refid="SAMPLE_BOARD_COLUMNS"><property name="prefix" value="A."/></include>
+        FROM    SAMPLE_BOARD A
+        WHERE   1 = 1
+        AND     A.BOARD_NO = #{boardNo:NUMERIC}
+    </select>
+
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="boardNo"
+            parameterType="com.willrain.sample.cms.biz.board.dto.SampleBoardEntity">
+        /* SampleBoardMapper.xml io.namp.eco.framework.sample.api.sample.SampleBoardMapper.insert willrain 2023.05.15 */
+        INSERT INTO SAMPLE_BOARD
+        (
+                BOARD_NAME
+            ,   OWNER_ID
+        )
+        VALUES
+        (
+                #{boardName:VARCHAR}
+            ,   #{ownerId:VARCHAR}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.willrain.sample.cms.biz.board.dto.SampleBoardEntity">
+        /* SampleBoardMapper.xml io.namp.eco.framework.sample.api.sample.SampleBoardMapper.update willrain 2023.05.15 */
+        UPDATE  SAMPLE_BOARD
+        SET
+                BOARD_NAME = #{boardName:VARCHAR}
+        WHERE   BOARD_NO   = #{boardNo:NUMERIC}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        /* SampleBoardMapper.xml io.namp.eco.framework.sample.api.sample.SampleBoardMapper.delete willrain 2023.05.15 */
+        DELETE  FROM SAMPLE_BOARD
+        WHERE 	1 = 1
+        AND 	BOARD_NO = #{boardNo:NUMERIC}
+    </delete>
+
+
+</mapper>
