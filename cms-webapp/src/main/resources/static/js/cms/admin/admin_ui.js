@@ -22,7 +22,7 @@ MbrUi = {
             //                         .attr("onclick","MbrUi.openModifyModal("+mbr.mbrNo+")");
             // const td10 = $("<td>").append(modifyBtn);
 
-            const trObj = $("<tr>")
+            const trObj = $("<tr onclick=\"location.href=\'/cms/admin/user/" + mbr.userId + "\'\">")
                 .append(td1).append(td2).append(td3).append(td4)
                 .append(td5)
                 // .append(td6).append(td7).append(td8)

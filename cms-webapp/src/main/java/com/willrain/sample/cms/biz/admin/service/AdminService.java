@@ -33,7 +33,19 @@ public class AdminService extends BaseServiceImplWithJpa<AdminModel, AdminEntity
         return list.stream().map(entity -> entity.toModel()).toList();
     }
 
+    @Transactional
+    public PageEntity<AdminModel> getListByDto(PageEntity pageEntity){
 
+        AdminModel searchDto = (AdminModel) pageEntity.getSearchDto();
+
+        Page<AdminEntity> page = repository.findByDepartmentEntity_DeptIdAndUseYn(searchDto.getDeptId(), searchDto.getUseYn(), toPageable(pageEntity));
+        Stream<AdminModel> stream = page.getContent().stream()
+                .map(entity -> entity.toModel());
+
+        pageEntity.setTotalCnt(page.getTotalElements());
+        pageEntity.setDtoList(stream.toList());
+        return pageEntity;
+    }
 
 //    @Transactional
 //    public PageEntity<DepartmentModel> getUserList(PageEntity<DepartmentModel> pageEntity) throws Exception {
@@ -43,5 +55,5 @@ public class AdminService extends BaseServiceImplWithJpa<AdminModel, AdminEntity
 //        pageEntity.setTotalCnt(page.getTotalElements());
 //        pageEntity.setDtoList(stream.toList());
 //        return pageEntity;
-//    }
+    //    }
 }

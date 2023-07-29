@@ -72,7 +72,7 @@ public class AdminController extends BaseController {
         PageEntity pageEntity = new PageEntity<>(page);
         pageEntity.setSearchDto(searchDto);
 
-        PageEntity<AdminModel> entity = adminService.getList(pageEntity);
+        PageEntity<AdminModel> entity = adminService.getListByDto(pageEntity);
 
         return ResponseEntityUtil.ok(entity);
     }
