@@ -1,6 +1,7 @@
 package com.willrain.sample.cms.web;
 
 import com.willrain.sample.cms.common.controller.BaseController;
+import com.willrain.sample.cms.common.user.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,8 +38,8 @@ public class IndexController extends BaseController {
     }
 
     @PostMapping("login-process")
-    public String loginProcess() {
-
+    public String loginProcess(UserInfo userInfo) {
+        log.info("# login Process : userInfo = {}", userInfo);
         return "index";
     }
 

@@ -27,6 +27,8 @@ public class UserInfo {
     private boolean isEmailVerified;
     private Collection<GrantedAuthority> roleList;
 
+    private String pw;
+
     public static UserInfo getInstance(Principal principal) {
         UserInfo userInfo = new UserInfo();
         if (principal == null) return userInfo;

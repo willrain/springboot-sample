@@ -3,3 +3,10 @@ GET localhost:8080/cms/admin/user/
 
 ### test api
 GET localhost:8080/cms/admin/user/api
+
+### 취합 문서 서식 수정
+POST localhost:8080/cms/doctype/doc-reg
+
+{
+
+}

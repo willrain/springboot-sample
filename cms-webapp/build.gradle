@@ -59,6 +59,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.2'
+    // 주석 프로세서로 메타 데이터 생성
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 test {

@@ -12,7 +12,7 @@
       </div>
       <P class="text-info">&nbsp;&nbsp;&nbsp; 취합문서의 정보를 수정합니다.</P>
       <div>
-        <form>
+        <form enctype="multipart/form-data" th:object="${doctypeModel}" th:action="@{/cms/doctype/doc-reg}" method="POST">
           <div class="table-responsive d-flex justify-content-center">
             <!--                                        <table class="table table-striped table-sm table-bordered w-auto">-->
             <table class="table table-hover table-sm w-auto m-2">
@@ -20,18 +20,9 @@
                 <th><p class="text-primary ">● 취합 문서명</p></th>
                 <td>
                   <!--                                                    <input class="form-control rounded-3" type="text" name="doc-title">-->
-                  <select class="form-select form-select" aria-label=".form-select-sm example" style="font-size: 14px">
-                    <option selected>취합 문서명을 선택해 주세요</option>
-                    <option value="1">주간 업무 보고</option>
-                    <option value="2">월간 업무보고</option>
-                    <option value="3">민원 처리보고</option>
-                    <option value="4">예산 집행 보고</option>
-                    <option value="5">사업 추진 보고</option>
-                    <option value="6">인사 관리 보고</option>
-                    <option value="7">안전 관리 보고</option>
-                    <option value="8">환경 관리 보고</option>
-                    <option value="9">정보화 관리 보고</option>
-                    <option value="10">홍보 관리 보고</option>
+                  <select id="dropdown" class="form-select form-select" aria-label=".form-select-sm example" th:field="*{doctypeId}" style="font-size: 14px" onchange="changeSelect()" required>
+                    <option value="" hidden>취합 문서명을 선택해 주세요</option>
+                    <option th:each="doctype : ${doctypeNameMap}" th:value="${doctype.key}" >[[${doctype.value}]]</option>
                   </select>
                 </td>
               </tr>
@@ -40,7 +31,7 @@
                 <td style="font-size: 14px">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input px-3"
-                           id="validatedCustomFile" required>
+                           id="validatedCustomFile" th:field="*{uploadFile}" required>
                     <label class="custom-file-label text-info" for="validatedCustomFile">업로드 할 파일을 선택해 주세요</label>
                     <div class="invalid-feedback">잘못된 사용자 지정 파일입니다.</div>
                   </div>
@@ -50,11 +41,10 @@
                 <th> <p class="text-primary">● 비고 설명</p></th>
                 <td style="font-size: 14px">
                   <div class="form-floating">
-                                                        <textarea class="form-control rounded-3" placeholder="서식문서 자세한 설명"
-                                                                  id="exampleFormControlTextarea1" rows="5" name="doc-etc" style="height: 200px"></textarea>
+                    <textarea class="form-control rounded-3" placeholder="서식문서 자세한 설명"
+                              id="exampleFormControlTextarea1" rows="5" name="doc-etc" style="height: 200px" th:field="*{doctypeNote}"></textarea>
                   </div>
                 </td>
-                <!--                                                <td><input class="form-control mx-3" type="text" name="doc-etc"></td>-->
               </tr>
             </table>
           </div>
@@ -68,9 +58,14 @@
     </main>
   </div>
 </th:block>
-
 </html>
-
-<script type="text/javascript">
-
+<script type="text/javascript"></script>
+<script type="text/javascript" th:src="'/js/cms/doctype/doctype_service.js?'+${#dates.format(#calendars.createNow(), 'yyyyMMddHHmmss')}" ></script>
+<script>
+  function changeSelect() {
+    var selected = document.getElementById("dropdown");
+    var value = selected.options[selected.selectedIndex].value;
+    DoctypeService.loadDetail(value);
+    // console.log(value);
+  }
 </script>

@@ -48,11 +48,11 @@ public class AdminController extends BaseController {
     @ModelAttribute("departmentMap")
     public Map<Long, String> department() {
         List<DepartmentModel> models = adminService.getDepartmentList();
-        Map<Long, String> useYn = new LinkedHashMap<>();
+        Map<Long, String> department = new LinkedHashMap<>();
         for (DepartmentModel model : models) {
-            useYn.put(model.getDeptId(), model.getDeptName());
+            department.put(model.getDeptId(), model.getDeptName());
         }
-        return useYn;
+        return department;
     }
 
     @GetMapping(path = {"", "/"})
