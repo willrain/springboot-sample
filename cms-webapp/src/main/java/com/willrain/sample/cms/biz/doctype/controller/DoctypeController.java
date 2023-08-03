@@ -71,13 +71,14 @@ public class DoctypeController extends BaseController {
         return mv;
     }
 
-    //취합 문서 정보 가져오기 필요없을듯>?
+    //취합 문서 양식 정보 가져오기 필요없을듯>?
     @GetMapping("/doc-reg/{doctypeId}")
     public ResponseEntity<DoctypeModel> getDoctype(@PathVariable("doctypeId") String id) throws Exception {
         log.info("# getDoctype data : doctypeId  = {}", id);
         DoctypeModel doctypeModel = doctypeService.getDetail(id);
         return ResponseEntityUtil.ok(doctypeModel);
     }
+    //취합 문서 양식 수정
     @PostMapping("/doc-reg")
     public String modifyDoctype(@ModelAttribute DoctypeModel param) throws Exception {
         log.info("#doctype modify() : doctypeId = {}, body = {}", param.getDoctypeId(), param);
@@ -93,16 +94,11 @@ public class DoctypeController extends BaseController {
 //                .orElseThrow(() -> new BizException(ResultCode.HTTP_403, "관리자만 수정 가능"));
 
         //파일 저장
-//        if (param.getUploadFile() != null) {
-//            throw new StorageFileNotFoundException("파일이 업로드되지 않았습니다.");
-//        }
         String savedPath = fileSystemStorageService.store(param.getUploadFile());
 
         // 수정 항목 맵핑
-
 //        Optional.ofNullable(param.getSampleFileUri()).ifPresent(s -> doctypeModel.setSampleFileUri(s));
-        Optional.ofNullable(savedPath
-        ).ifPresent(s -> doctypeModel.setSampleFileUri(s));
+        Optional.ofNullable(savedPath).ifPresent(s -> doctypeModel.setSampleFileUri(s));
         Optional.ofNullable(param.getDoctypeNote()).ifPresent(s -> doctypeModel.setDoctypeNote(s));
 
         doctypeService.modify(doctypeModel);
@@ -110,11 +106,11 @@ public class DoctypeController extends BaseController {
         return "redirect:/cms/doctype/doc-reg";
     }
 
-    @GetMapping(path = "/set-input-person")
-    public ModelAndView setInputPerson(Pageable page) throws Exception {
-        ModelAndView mv = new ModelAndView("cms/doctype/set-input-person");
-        return mv;
-    }
+//    @GetMapping(path = "/set-input-person")
+//    public ModelAndView setInputPerson(Pageable page) throws Exception {
+//        ModelAndView mv = new ModelAndView("cms/doctype/set-input-person");
+//        return mv;
+//    }
 
     @GetMapping(path = "/docs-status")
     public ModelAndView docsStatus(Pageable page) throws Exception {
