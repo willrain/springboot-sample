@@ -23,7 +23,6 @@ public class DoctypeDutyController extends BaseController {
     @GetMapping(path = {"", "/"})
     public ModelAndView index(Pageable pageable) throws Exception {
         ModelAndView mv = new ModelAndView("cms/doctype/set-input-person");
-            log.info("in doctype duty controller");
         PageEntity<DoctypeDutyModel> pageEntity = doctypeDutyService.getList(new PageEntity<>(pageable));
         log.info("pageEntity = {}", pageEntity);
 

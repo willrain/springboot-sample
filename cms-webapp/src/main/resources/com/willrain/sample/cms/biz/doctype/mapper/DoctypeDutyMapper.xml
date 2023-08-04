@@ -45,6 +45,15 @@
         LIMIT 	#{startRow:NUMERIC}, #{endRow:NUMERIC}
     </select>
 
+    <select id="selectListWithConcat" parameterType="com.willrain.sample.cms.common.dto.PageEntity" >
+        SELECT DD.DOCTYPE_ID, DT.DOCTYPE_NAME, GROUP_CONCAT(D.DEPT_NAME ORDER BY DD.DEPT_ID SEPARATOR ', ') AS DEPTS
+        FROM DOCTYPE_DUTY DD
+        JOIN DOC_TYPE DT ON DD.DOCTYPE_ID = DT.DOCTYPE_ID
+        JOIN DEPARTMENT D ON DD.DEPT_ID = D.DEPT_ID
+        WHERE DD.DUTY_YN = 'Y'
+        GROUP BY DT.DOCTYPE_NAME
+    </select>
+
     <select id="selectDetail" parameterType="Long" resultType="com.willrain.sample.cms.biz.board.dto.SampleBoardEntity">
         /* SampleBoardMapper.xml com.willrain.sample.cms.biz.board.mapper.SampleBoardMapper.selectDetail willrain 2023.05.15 */
         SELECT
