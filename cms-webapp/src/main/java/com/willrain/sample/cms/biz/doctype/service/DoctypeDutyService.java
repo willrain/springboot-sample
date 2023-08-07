@@ -19,8 +19,8 @@ public class DoctypeDutyService extends BaseServiceImplWithMapper<DoctypeDutyMod
         this.mapper = doctypeDutyMapper;
     }
 
-    @Override
-    public PageEntity<DoctypeDutyModel> getList(PageEntity<DoctypeDutyModel> param) throws Exception {
+
+    public PageEntity<DoctypeDutyModel> getListWithConcat(PageEntity<DoctypeDutyModel> param) throws Exception {
         PageEntity<DoctypeDutyEntity> pageEntity = this.toEntity(param);
 
 //        long totalCnt = mapper.totalCnt(pageEntity);

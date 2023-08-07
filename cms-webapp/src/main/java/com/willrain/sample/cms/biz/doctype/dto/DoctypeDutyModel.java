@@ -20,6 +20,7 @@ public class DoctypeDutyModel extends BaseModel {
     private String deptName;
     private String dutyYn;
     private String userId;
+    private String userName;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -29,8 +30,10 @@ public class DoctypeDutyModel extends BaseModel {
         this.doctypeId = entity.getDoctypeId();
         this.doctypeName = entity.getDoctypeName();
         this.deptId = entity.getDeptId();
+        this.deptName = entity.getDeptName();
         this.dutyYn = entity.getDutyYn();
         this.userId = entity.getUserId();
+        this.userName = entity.getUserName();
         this.createdAt = entity.getCreatedAt();
         this.updatedAt = entity.getUpdatedAt();
 

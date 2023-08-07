@@ -7,8 +7,8 @@
     <sql id="listWhereStr">
         <!-- START : searcDto 검색 조건 -->
         <if test='searchDto != null '>
-            <if test='searchDto.boardName != null'>
-                AND ${prefix}BOARD_NAME = #{bardName:VARCHAR}
+            <if test='searchDto.doctypeId != null'>
+                AND ${prefix}DOCTYPE_ID = #{searchDto.doctypeId:VARCHAR}
             </if>
         </if>
         <!-- END  : searcDto 검색 조건 -->
@@ -26,7 +26,7 @@
     <select id="totalCnt" parameterType="com.willrain.sample.cms.common.dto.PageEntity" resultType="int">
         /* SampleBoardMapper.xml com.willrain.sample.cms.biz.board.mapper.SampleBoardMapper.totalCnt willrain 2023.05.15 */
         SELECT  COUNT(*)
-        FROM    SAMPLE_BOARD A
+        FROM    DOCTYPE_DUTY A
         WHERE 1 =1
         <include refid="listWhereStr">
             <property name="prefix" value="A."/>
@@ -35,13 +35,16 @@
 
     <select id="selectList" parameterType="com.willrain.sample.cms.common.dto.PageEntity" resultType="com.willrain.sample.cms.biz.doctype.dto.DoctypeDutyEntity">
         /* SampleBoardMapper.xml com.willrain.sample.cms.biz.board.mapper.SampleBoardMapper.selectList willrain 2023.05.15 */
-        SELECT  <include refid="DOCTYPE_DUTY_COLUMNS"><property name="prefix" value="A."/></include>
-        FROM    SAMPLE_BOARD A
+        SELECT  A.DOCTYPE_ID, DT.DOCTYPE_NAME, A.DEPT_ID, D.DEPT_NAME, A.USER_ID, U.USER_NAME, A.DUTY_YN
+        FROM    DOCTYPE_DUTY A
+        JOIN DOC_TYPE DT ON A.DOCTYPE_ID = DT.DOCTYPE_ID
+        JOIN DEPARTMENT D ON A.DEPT_ID = D.DEPT_ID
+        LEFT JOIN USER U ON A.USER_ID = U.USER_ID
         WHERE   1 = 1
         <include refid="listWhereStr">
             <property name="prefix" value="A."/>
         </include>
-        ORDER BY BOARD_NO DESC
+        ORDER BY DEPT_ID DESC
         LIMIT 	#{startRow:NUMERIC}, #{endRow:NUMERIC}
     </select>
 

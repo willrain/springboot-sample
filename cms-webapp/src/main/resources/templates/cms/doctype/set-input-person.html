@@ -9,7 +9,6 @@
     <main class="px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-end pt-3 pb-2 mb-3 border-bottom">
         <h4 class="text-primary fw-bold"><span class="fas fa-user pe-1"></span>문서 입력자 지정</h4>
-
       </div>
       <div class="table-responsive col-md-11">
         <table class="table table-hover table-striped text-center" style="font-size: 14px">
@@ -24,8 +23,8 @@
           <tr th:each="doctype: ${pageEntity.dtoList}">
             <th class="text-nowrap text-primary" th:text="${doctype.getDoctypeName()}">문서명</th>
             <td th:text="${doctype.getDepts()}">부서 리스트</td>
-            <th class="text-nowrap">
-              <a class="btn btn-outline-primary btn-sm" role="button" data-bs-toggle="modal" href="#exampleModal" data-bs-whatever="주간 업무 보고">지정 및 수정</a>
+            <th  class="text-nowrap">
+              <a class="btn btn-outline-primary btn-sm" role="button" th:doctypeId="${doctype.doctypeId}" th:onclick="fetchByDoctypeId(this.getAttribute('doctypeId'))" data-bs-toggle="modal" href="#exampleModal">지정 및 수정</a>
             </th>
           </tr>
           </tbody>
@@ -44,6 +43,7 @@
         </div>
         <div class="modal-body">
           <div class="table-responsive">
+
             <table class="table table-hover table-striped table-bordered text-center" style="font-size: 14px">
               <thead>
               <tr>
@@ -185,7 +185,13 @@
     </div>
   </div>
   <!-- 지정 및 수정 Modal script-->
-  <script>
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    let docObject = /*[[ ${docObject} ]]*/;
+    /*]]*/
+    function fetchByDoctypeId(doctypeId) {
+      DoctypeService.fetchByDoctypeId(doctypeId)
+    }
     let exampleModal = document.getElementById('exampleModal')
     exampleModal.addEventListener('show.bs.modal', function (event) {
       // Button that triggered the modal
@@ -279,7 +285,7 @@
 </th:block>
 
 </html>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" th:src="'/js/cms/doctype/doctype_service.js?'+${#dates.format(#calendars.createNow(), 'yyyyMMddHHmmss')}" ></script>
+<script type="text/javascript" th:src="'/js/cms/doctype/doctype_ui.js?'+${#dates.format(#calendars.createNow(), 'yyyyMMddHHmmss')}" ></script>
 
-<script type="text/javascript">
-
-</script>

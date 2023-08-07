@@ -26,11 +26,19 @@ public class DoctypeDutyEntity extends BaseEntity {
     @Column(name = "DEPT_ID")
     private Long deptId;
 
+    @Column(name = "DEPT_NAME")
+    @Transient
+    private String deptName;
+
     @Column(name = "DUTY_YN")
     private String dutyYn;
 
     @Column(name = "USER_ID")
     private String userId;
+
+    @Column(name = "USER_NAME")
+    @Transient
+    private String userName;
 
     @Column(name = "DEPTS")
     @Transient
