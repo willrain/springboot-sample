@@ -12,48 +12,21 @@
             </div>
 
             <div class="card mb-3 p-2 text-info">■&nbsp;&nbsp; 검색 조건
-                <div class="row">
-                    <div class="col d-sm-flex">
-                        <div class="button me-1">
-                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">1주차</button>
-                        </div>
-                        <div class="button me-1">
-                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">2주차</button>
-                        </div>
-                        <div class="button me-1">
-                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">3주차</button>
-                        </div>
-                        <div class="button me-1">
-                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">4주차</button>
-                        </div>
-                        <div class="button me-1">
-                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">월간</button>
-                        </div>
-                        <div class="button me-1">
-                            <button type="button" class="btn btn-outline-info text-nowrap btn-sm">분기</button>
-                        </div>
-                    </div>
                     <div class="col d-sm-flex btn-sm text-info"> 기간 설정 : &nbsp;&nbsp;
                         <input class="input-group-sm btn btn-outline-info btn-sm"
                                type="date"
-                               id="dateFrom"
-                               max="2023-06-20"
-                               min="2023-06-05"
-                               value="2023-06-15">
+                               id="dateFrom">
                         <span>  &nbsp;&nbsp; ~ &nbsp;&nbsp; </span>
                         <input class="input-group-sm btn btn-outline-info btn-sm"
                                type="date"
-                               id="dateTo"
-                               max="2023-07-20"
-                               min="2023-07-05"
-                               value="2023-07-10">
+                               id="dateTo">
                         <div class="col d-sm-flex px-1">
                             <!--                            <button type="button" class="btn btn-info text-nowrap btn-sm"><span class="fas fa-search"></span><span class="nav-link-text ps-2">조회</span></button>-->
                             <button type="button" class="btn btn-info text-nowrap btn-sm" data-bs-toggle="modal" data-bs-target="#searchModal">
                                 <span class="fas fa-search"></span><span class="nav-link-text ps-2">조회</span></button>
                         </div>
                     </div>
-                </div>
+
             </div>
             <p class="text-warning"> 입력해야 할 문서를 보여준다.</p>
             <p style="text-align: center;">
@@ -67,6 +40,10 @@
                     <div class="col">
                         <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#saveModal">
                             <span class="fas fa-file-upload"></span><span class="nav-link-text ps-2">저장하기</span></button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-info position-relative" data-bs-toggle="modal" data-bs-target="#submitModal">
+                            <span class="fas fa-file-upload"></span><span class="nav-link-text ps-2">제출하기</span></button>
                     </div>
                     <p></p>
                 </div>
@@ -93,21 +70,21 @@
             </div>
         </div>
 
-        <!--    [자료공개]  Modal 알림-->
-        <div class="modal" id="openModal" tabindex="-1">
+        <!--    [문서 제출]  Modal 알림-->
+        <div class="modal" id="submitModal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-success"><span class="fab fa-leanpub"></span>&nbsp;&nbsp; 공개자료에 게시</h5>
+                        <h5 class="modal-title text-info"><span class="fab fa-leanpub"></span>&nbsp;&nbsp; 문서 제출</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>본 문서를 공개자료에 오픈하시겠습니까?</p>
+                        <p>본 문서를 제출하시겠습니까?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">취소</button>
-                        <button type="button" class="btn btn-success">
-                            <span class="fas fa-file-upload"></span><span class="nav-link-text ps-2">자료 공개</span></button>
+                        <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">취소</button>
+                        <button type="button" class="btn btn-info">
+                            <span class="fas fa-file-upload"></span><span class="nav-link-text ps-2">문서 제출</span></button>
                     </div>
                 </div>
             </div>

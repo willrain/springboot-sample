@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout/admin/layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+
+    <title>부서 선택</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+
+            <div class="d-grid gap-2 col-6 justify-content-md-start">
+                <div class="btn-group dropend">
+                    <button aria-expanded="false" class="dep_btn btn-light btn-outline-secondary dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            id="department1" type="button">
+                        기획행정국
+                    </button>
+                    <ul aria-labelledby="department1" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">기획예산과</a></li>
+                        <li><a class="dropdown-item" href="#">행정과</a></li>
+                        <li><a class="dropdown-item" href="#">민원여권과</a></li>
+                        <li><a class="dropdown-item" href="#">회계과</a></li>
+                        <li><a class="dropdown-item" href="#">스마트도시과</a></li>
+                        <li><a class="dropdown-item" href="#">정보통신과</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 justify-content-md-start">
+                <div class="btn-group dropend">
+                    <button aria-expanded="false" class="dep_btn btn-light btn-outline-secondary dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            id="department1" type="button">
+                        경제통산국
+                    </button>
+                    <ul aria-labelledby="department1" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">일자리경제과</a></li>
+                        <li><a class="dropdown-item" href="#">기업통상과</a></li>
+                        <li><a class="dropdown-item" href="#">세무과</a></li>
+                        <li><a class="dropdown-item" href="#">징수과</a></li>
+                        <li><a class="dropdown-item" href="#">토지정보과</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 justify-content-md-start">
+                <div class="btn-group dropend">
+                    <button aria-expanded="false" class="dep_btn btn-light btn-outline-secondary dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            id="department1" type="button">
+                        문화관광체육국
+                    </button>
+                    <ul aria-labelledby="department1" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">문화예술과</a></li>
+                        <li><a class="dropdown-item" href="#">관광진흥과</a></li>
+                        <li><a class="dropdown-item" href="#">체육진흥과</a></li>
+                        <li><a class="dropdown-item" href="#">도시재생과</a></li>
+                        <li><a class="dropdown-item" href="#">위생과</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<!--오른쪽 사용자 선택        -->
+        <div class="col-8">
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered text-center" style="font-size: 14px">
+                        <thead>
+                        <tr>
+                            <th class="text-nowrap">입력자</th>
+                            <th class="text-nowrap">선택</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>이성근</td>
+                            <td class="align-content-center text-center">
+                                <div>
+                                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="" aria-label="...">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>김유진</td>
+                            <td class="align-content-center text-center">
+                                <div>
+                                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2" value="" aria-label="...">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>권상근</td>
+                            <td class="align-content-center text-center">
+                                <div>
+                                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3" value="" aria-label="...">
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer align-content-center text-center">
+                <button type="button" class="btn btn-secondary btn-close-falcon-container">저장</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .dep_btn {
+        border: gray;
+        color: gray;
+        padding: 10px 20px;
+        text-align: left;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        width: 200px;
+    }
+
+</style>
+
+<script crossorigin="anonymous"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
